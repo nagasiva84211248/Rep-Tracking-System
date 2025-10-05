@@ -1,16 +1,20 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
+import { NavigationContainer } from '@react-navigation/native';
+import { StatusBar, useColorScheme } from 'react-native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { createStackNavigator } from '@react-navigation/stack';
 
-import { NewAppScreen } from '@react-native/new-app-screen';
-import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
-import {
-  SafeAreaProvider,
-  useSafeAreaInsets,
-} from 'react-native-safe-area-context';
+import HomeScreen from './src/screens/home';
+import SplashScreen from './src/screens/SplashScreen';
+import { Ilocations, IStartTimeEndTimeDistance } from './src/screens/home/types';
+import SummaryScreen from './src/screens/summary';
+
+export type RootStackParamList = {
+  SplashScreen: undefined;
+  HomeScreen: undefined;
+  SummaryScreen: { summaryData: IStartTimeEndTimeDistance};
+};
+
+const RootStack = createStackNavigator<RootStackParamList>();
 
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
@@ -18,28 +22,22 @@ function App() {
   return (
     <SafeAreaProvider>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <AppContent />
+      <NavigationContainer>
+        <RootStack.Navigator initialRouteName="SplashScreen">
+          <RootStack.Screen name="SplashScreen" component={SplashScreen} options={{headerShown: false}}/>
+          <RootStack.Screen name="HomeScreen" component={HomeScreen} options={{headerShown: false}}/>
+          <RootStack.Screen name="SummaryScreen" component={SummaryScreen} />
+        </RootStack.Navigator>
+      </NavigationContainer>
     </SafeAreaProvider>
+    // <NavigationContainer>
+    //     <RootStack.Navigator initialRouteName="HomeScreen">
+    //       <RootStack.Screen name="SplashScreen" component={SplashScreen} options={{headerShown: false}}/>
+    //       <RootStack.Screen name="HomeScreen" component={HomeScreen} options={{headerShown: false}}/>
+    //       <RootStack.Screen name="SummaryScreen" component={SummaryScreen} />
+    //     </RootStack.Navigator>
+    // </NavigationContainer>
   );
 }
-
-function AppContent() {
-  const safeAreaInsets = useSafeAreaInsets();
-
-  return (
-    <View style={styles.container}>
-      <NewAppScreen
-        templateFileName="App.tsx"
-        safeAreaInsets={safeAreaInsets}
-      />
-    </View>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
 
 export default App;
