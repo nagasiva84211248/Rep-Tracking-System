@@ -7,15 +7,14 @@ type SummaryScreenProps = StackScreenProps<
     RootStackParamList,
     'SummaryScreen'
 >
-
 const SummaryScreen: React.FC<SummaryScreenProps> = ({ route }) => {
     const { summaryData } = route.params;
     const [totalMinuts, setTotalMinutes] = useState<string>();
     const [totalDistance, setTotalDistance] = useState<number>();
 
     useEffect(() => {
-        console.log("summaryData", summaryData)
         addCheckInOutTimeDistance();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const addCheckInOutTimeDistance = () => {
@@ -33,8 +32,6 @@ const SummaryScreen: React.FC<SummaryScreenProps> = ({ route }) => {
         setTotalMinutes((totalSeconds / 60).toFixed(2));
         setTotalDistance(distance);
     }
-
-    console.log(summaryData)
     return (
         <View style={styles.container}>
             <View style={styles.subContainer}>
@@ -42,15 +39,12 @@ const SummaryScreen: React.FC<SummaryScreenProps> = ({ route }) => {
                 <View style={styles.statsContainer}>
                     <View style={styles.card}>
                         <Text style={styles.title}>Summary</Text>
-
                         <View style={styles.statRow}>
                             <View style={styles.statBox}>
                                 <Text style={styles.label}>Total Distance</Text>
                                 <Text style={styles.value}>{totalDistance} km</Text>
                             </View>
-
                             <View style={styles.divider} />
-
                             <View style={styles.statBox}>
                                 <Text style={styles.label}>Total Time</Text>
                                 <Text style={styles.value}>{totalMinuts} min</Text>
@@ -58,7 +52,6 @@ const SummaryScreen: React.FC<SummaryScreenProps> = ({ route }) => {
                         </View>
                     </View>
                 </View>
-
             </View>
             <View style={styles.emptyContainer} />
         </View>

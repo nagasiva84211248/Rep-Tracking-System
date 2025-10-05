@@ -14,13 +14,13 @@ const SplashScreen = () => {
   const animationRef = useRef<LottieView>(null);
   const navigation = useNavigation<SplashScreenNavigationProp>();
   useEffect(() => {
-    console.log('Reached')
     animationRef.current?.play();
     const timeout = setTimeout(() => {
       navigation.replace('HomeScreen');
     }, 4000);
 
     return () => clearTimeout(timeout);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

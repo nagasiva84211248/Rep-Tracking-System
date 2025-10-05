@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import React, { useEffect, useRef } from "react";
 import {
   Animated,
@@ -37,6 +38,7 @@ const BottomSheet:React.FC<IBottomSheet> = ({ visible, onClose, data, completedW
         useNativeDriver: true,
       }).start();
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [visible]);
 
   return (
@@ -58,8 +60,7 @@ const BottomSheet:React.FC<IBottomSheet> = ({ visible, onClose, data, completedW
                 <View style={[styles.itemContainer,{backgroundColor:completedWaypoints >= item.id ? 'green' : '#ccc' }]}>
                     <Text style={[styles.textStyle,{color:completedWaypoints >= item.id ? '#FFF' : '#000' }]}>{item.location}</Text>
                 </View>
-            )}>
-        </FlatList>
+            )} />
         </View>
       </Animated.View>
     </Modal>

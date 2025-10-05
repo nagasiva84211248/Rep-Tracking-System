@@ -54,11 +54,11 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
       animatedLat.removeListener(latListener);
       animatedLng.removeListener(lngListener);
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [resetLoc]);
 
   // ==> Amimation logic states update based on dependency states (repStart, continueNav)
   useEffect(() => {
-    console.log("currentIndex", currentIndex)
     if (currentIndex >= locations.length - 1) return;
     if (repStart) return;
     if (currentIndex === 0 && !enableWaypoint) {
@@ -69,9 +69,7 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
       setEnableWayPoint(prev => !prev);
       return setCheckIn(prev => !prev);
     }
-    console.log('started')
     setCurrentIndex(currentIndex + 1);
-    const start = locations[currentIndex];
     const end = locations[currentIndex + 1];
 
     Animated.timing(animatedLat, {
@@ -98,6 +96,7 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
         1500
       );
     });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [repStart, continueNav, resetLoc]);
 
   useEffect(() => {
@@ -118,6 +117,7 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
         navigation.navigate('SummaryScreen', { summaryData: updatedDuration });
       }, 2000);
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [summary])
 
   //  ==> check-out Logic
@@ -274,7 +274,7 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
       {
         loader &&
         <View style={styles.loaderContainer}>
-          <ActivityIndicator color={'#blue'} size={40}></ActivityIndicator>
+          <ActivityIndicator color={'blue'} size={40}></ActivityIndicator>
         </View>
       }
     </View>
@@ -310,7 +310,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     height: 40,
-    // width: 150,
     padding: 10,
     backgroundColor: 'green',
     position: 'absolute', right: '35%', left: '35%'
