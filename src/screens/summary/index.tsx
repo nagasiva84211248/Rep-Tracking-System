@@ -39,10 +39,26 @@ const SummaryScreen: React.FC<SummaryScreenProps> = ({ route }) => {
         <View style={styles.container}>
             <View style={styles.subContainer}>
                 <Image source={require('../../assets/images/journeyCompleted.png')} style={styles.imageStyle} />
-                <View style={styles.textContainer}>
-                    <Text style={styles.textStyle}>Total Distance: {totalDistance}</Text>
-                    <Text style={styles.textStyle}>Total Minutes: {totalMinuts}</Text>
+                <View style={styles.statsContainer}>
+                    <View style={styles.card}>
+                        <Text style={styles.title}>Summary</Text>
+
+                        <View style={styles.statRow}>
+                            <View style={styles.statBox}>
+                                <Text style={styles.label}>Total Distance</Text>
+                                <Text style={styles.value}>{totalDistance} km</Text>
+                            </View>
+
+                            <View style={styles.divider} />
+
+                            <View style={styles.statBox}>
+                                <Text style={styles.label}>Total Time</Text>
+                                <Text style={styles.value}>{totalMinuts} min</Text>
+                            </View>
+                        </View>
+                    </View>
                 </View>
+
             </View>
             <View style={styles.emptyContainer} />
         </View>
@@ -59,11 +75,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         flex: 1,
     },
-    textStyle: {
-        fontSize: 25,
-        fontWeight: 700,
-        color: '#000'
-    },
     imageStyle: {
         height: 200,
         width: '100%',
@@ -76,14 +87,56 @@ const styles = StyleSheet.create({
         width: '100%',
         height: '75%'
     },
-    textContainer: {
-        marginTop: 100,
-        justifyContent: 'center',
-        alignItems: 'center'
-    },
     emptyContainer: {
         height: '25%',
         backgroundColor: '#afd5efff',
         width: '100%'
-    }
+    },
+    statsContainer: {
+        marginTop: 60,
+        alignItems: 'center',
+    },
+    card: {
+        width: '85%',
+        backgroundColor: '#ffffff',
+        borderRadius: 20,
+        paddingVertical: 20,
+        paddingHorizontal: 25,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 4 },
+        shadowOpacity: 0.1,
+        shadowRadius: 6,
+        elevation: 5,
+    },
+    title: {
+        fontSize: 18,
+        fontWeight: '700',
+        color: '#1a1a1a',
+        textAlign: 'center',
+        marginBottom: 15,
+    },
+    statRow: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+    },
+    statBox: {
+        flex: 1,
+        alignItems: 'center',
+    },
+    label: {
+        fontSize: 14,
+        color: '#7a7a7a',
+    },
+    value: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        color: '#007AFF',
+        marginTop: 4,
+    },
+    divider: {
+        height: '100%',
+        width: 1,
+        backgroundColor: '#e0e0e0',
+    },
 })

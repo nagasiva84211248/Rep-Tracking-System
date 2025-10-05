@@ -26,7 +26,7 @@ function App() {
         <RootStack.Navigator initialRouteName="SplashScreen">
           <RootStack.Screen name="SplashScreen" component={SplashScreen} options={{headerShown: false}}/>
           <RootStack.Screen name="HomeScreen" component={HomeScreen} options={{headerShown: false}}/>
-          <RootStack.Screen name="SummaryScreen" component={SummaryScreen} />
+          <RootStack.Screen name="SummaryScreen" component={SummaryScreen} options={ {headerTitle:''}} />
         </RootStack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>

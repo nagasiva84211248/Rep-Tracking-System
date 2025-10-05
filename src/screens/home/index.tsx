@@ -76,14 +76,14 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
 
     Animated.timing(animatedLat, {
       toValue: end.latitude,
-      duration: 5000,
+      duration: 5500,
       easing: Easing.linear,
       useNativeDriver: false,
     }).start();
 
     Animated.timing(animatedLng, {
       toValue: end.longitude,
-      duration: 5000,
+      duration: 5500,
       easing: Easing.linear,
       useNativeDriver: false,
     }).start(() => {
