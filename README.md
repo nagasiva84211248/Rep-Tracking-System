@@ -4,6 +4,8 @@ This is a new [**React Native**](https://reactnative.dev) project, bootstrapped 
 
 > **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
 
+https://github.com/user-attachments/assets/328fec6c-4162-49f9-a001-bf177b8ab993
+
 ## About this application (Repesentative tracking system using MAPS-unpaid) 
   ## 1. Lottie splash implementaintion.
   ## 2. Once splash is completed it will redirect to home screen which consist of map view and Rep tracking functionality.
