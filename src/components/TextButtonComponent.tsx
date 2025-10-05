@@ -1,4 +1,4 @@
-import { StyleSheet, Text, TouchableOpacity, View, ViewStyle } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, ViewStyle } from 'react-native'
 import React from 'react'
 
 interface TextButtonComponentProps {
@@ -9,9 +9,10 @@ interface TextButtonComponentProps {
     disable?: boolean,
 }
 
-const TextButtonComponent: React.FC<TextButtonComponentProps> = ({ onPress, backgroundColor, title, position, disable }) => {
+const TextButtonComponent: React.FC<TextButtonComponentProps> = ({ onPress, backgroundColor, title, position }) => {
     return (
         <TouchableOpacity onPress={onPress}
+         // eslint-disable-next-line react-native/no-inline-styles
          style={[styles.btn, {
             backgroundColor:backgroundColor,
             position: 'absolute', ...position 

@@ -1,4 +1,4 @@
-import { Image, StyleSheet, Text, TouchableOpacity, View, ViewStyle } from 'react-native'
+import { Image, StyleSheet, TouchableOpacity, View, ViewStyle } from 'react-native'
 import React from 'react'
 
 interface ImageButtonComponentProps {
@@ -8,8 +8,9 @@ interface ImageButtonComponentProps {
     disable?: boolean,
 }
 
-const ImageButtonComponent: React.FC<ImageButtonComponentProps> = ({ onPress, imageSource, position, disable }) => {
+const ImageButtonComponent: React.FC<ImageButtonComponentProps> = ({ onPress, imageSource, position }) => {
     return (
+        // eslint-disable-next-line react-native/no-inline-styles
         <View style={[styles.btnReset,{top:70, ...position}]}>
             <TouchableOpacity onPress={onPress} style={styles.btnMenuBar}>
                 <Image source={imageSource} style={styles.menubar} />
