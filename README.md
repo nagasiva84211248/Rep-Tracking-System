@@ -41,7 +41,14 @@ https://github.com/user-attachments/assets/328fec6c-4162-49f9-a001-bf177b8ab993
         2. Once Check-Out is done, enable the next waypoint and continue animation.
 
         3. Repeat the Check-In / Check-Out sequence for all waypoints.
+        
+    E. UI/UX 
 
+        Display a Bottom sheet with current waypoint details (e.g., “Waypoint 3 – Sector 45 Market”).
+
+        Show progress info: “Reached 3 of 10 waypoints”.
+
+        After the last waypoint, show a summary screen with total distance covered and total duration.
 ```
 
 ## Step 2: Start Metro
